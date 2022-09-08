@@ -6,7 +6,8 @@ import requests
 results = []
 
 try:
-    if margs[1].__contains__("@"): margs[1] = margs[1].split("@")[1]
+    if margs[1].__contains__("@"): 
+        margs[1] = margs[1].split("@")[1]
 
     with requests.get("https://raw.githubusercontent.com/IRIS-Team/IRIS/main/data/domains.txt") as request:
         email_domains = [x.strip() for x in request.text.splitlines() if len(x.strip()) > 0]
