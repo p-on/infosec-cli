@@ -1,22 +1,5 @@
 import argparse, os, json
 
-parser = argparse.ArgumentParser(
-    description = "a command line interface for infosec"
-)
-
-parser.add_argument("-b64", "--base64", type = str, nargs = "*",
-    metavar = ("decode/encode", "string"),
-    help = "modules for base64 handling"
-)
-
-parser.add_argument("-md5", type = str, nargs = 2,
-    metavar = ("dehash/hash", "string"),
-    help = "modules for md5 handling"
-)
-
-args = parser.parse_args()
-sargs = vars(args)
-
 __filepath__ = os.path.dirname(__file__)
 __dirtree__ = os.listdir(__filepath__ + "/modules")
 __settings__ = json.load(open(__filepath__ + "/settings.json"))
@@ -29,6 +12,23 @@ def log(to: str, what: str):
     print(f"\033[0m[{to}\033[0m] {what}\033[0m")
 
 def main():
+    parser = argparse.ArgumentParser(
+        description = "a command line interface for infosec"
+    )
+
+    parser.add_argument("-b64", "--base64", type = str, nargs = "*",
+        metavar = ("decode/encode", "string"),
+        help = "modules for base64 handling"
+    )
+
+    parser.add_argument("-md5", type = str, nargs = 2,
+        metavar = ("dehash/hash", "string"),
+        help = "modules for md5 handling"
+    )
+
+    args = parser.parse_args()
+    sargs = vars(args)
+
     for sarg in sargs:
         margs = sargs[sarg]
         __all__ = [name for name in globals()]
@@ -40,5 +40,4 @@ def main():
             except Exception as e:
                 print(e)
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__": main()
