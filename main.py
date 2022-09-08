@@ -75,7 +75,7 @@ def main():
     ) # md5 command for further testing purposes, hash_files must be configured properly and formatted properly before running dehash
 
     parser.add_argument("-em", "--email", type = str, nargs = 2,
-        metavar = ("guess", "email"),
+        metavar = ("guess/signups", "email"),
         help = "modules for email int"
     ) # email command, no more to say
 
