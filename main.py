@@ -58,6 +58,8 @@ def log(to: str, what: str):
     print(f"\033[0m[{to}\033[0m] {what}\033[0m")
 
 def main():
+    results, fails = [], []
+
     parser = argparse.ArgumentParser(
         description = "a command line interface for infosec"
     )
@@ -94,6 +96,12 @@ def main():
                 exec(open(__filepath__ + "/modules/" + sarg + "/" + margs[0] + ".py").read())
             except Exception as e:
                 print(e)
+
+    for result in results:
+        log("*", f"\033[93m{result}")
+    if args.fails:
+        for result in fails:
+            log("-", f"\033[31m{result}")
 
 if __name__ == "__main__": 
     main()
