@@ -1,4 +1,4 @@
-import argparse, os
+import argparse, os, json
 
 parser = argparse.ArgumentParser(
     description = "a command line interface for infosec"
@@ -14,6 +14,7 @@ sargs = vars(args)
 
 __filepath__ = os.path.dirname(__file__)
 __dirtree__ = os.listdir(__filepath__ + "/modules")
+__settings__ = json.load(open(__filepath__ + "/settings.json"))
 
 def log(to: str, what: str):
     if to == "*": to = "\033[93m*"
