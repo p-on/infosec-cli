@@ -29,7 +29,10 @@ def main():
 
         if len(margs) > 1:
             print(f"\033[0m[\033[32m+\033[0m] started command \033[93m{sarg}\033[0m")
-            exec(open(__filepath__ + "/modules/" + sarg + "/" + margs[0] + ".py").read())
+            try:
+                exec(open(__filepath__ + "/modules/" + sarg + "/" + margs[0] + ".py").read())
+            except Exception as e:
+                print(e)
 
 if __name__ == "__main__": 
     main()
