@@ -5,8 +5,39 @@ from holehe.instruments import TrioProgress
 
 # credit to holehe, i really cba to sort this all
 
+def import_submodules(package, recursive=True):
+    global import_submodules
+
+    if isinstance(package, str):
+        package = importlib.import_module(package)
+    resultsx = {}
+    for loader, name, is_pkg in pkgutil.walk_packages(package.__path__):
+        full_name = package.__name__ + '.' + name
+        resultsx[full_name] = importlib.import_module(full_name)
+        if recursive and is_pkg:
+            resultsx.update(import_submodules(full_name))
+    return resultsx
+
+def get_functions(modules, args=None):
+    websites = []
+
+    for module in modules:
+        if len(module.split(".")) > 3 :
+            modu = modules[module]
+            site = module.split(".")[-1]
+            if args !=None and args.nopasswordrecovery==True:
+                if  "adobe" not in str(modu.__dict__[site]) and "mail_ru" not in str(modu.__dict__[site]) and "odnoklassniki" not in str(modu.__dict__[site]):
+                    websites.append(modu.__dict__[site])
+            else:
+                websites.append(modu.__dict__[site])
+    return websites
+
+async def launch_module(module, email, client, out):
+    try: await module(email, client, out)
+    except: pass
+
 async def main_holehe(email, out):
-    global httpx, trio, websites, modules
+    global httpx, trio, websites, modules, launch_module
     
     client = httpx.AsyncClient(timeout=10)
     async with trio.open_nursery() as nursery:
