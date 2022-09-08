@@ -3,6 +3,18 @@ import httpx
 
 # credit to IRIS-Team
 
+def validate_guess(email_domain: str, domain: str) -> bool:
+    if len(email_domain) != len(domain):
+        return False
+    
+    positions = []
+    [positions.append((position, char)) for position, char in enumerate(email_domain) if char != '*']
+    for position, char in positions:
+        if domain[position] != char:
+            return False
+
+    return True
+
 try:
     if margs[1].__contains__("@"): 
         margs[1] = margs[1].split("@")[1]
@@ -11,7 +23,7 @@ try:
         request = httpx.get("https://raw.githubusercontent.com/IRIS-Team/IRIS/main/data/domains.txt")
         email_domains = [x.strip() for x in request.text.splitlines() if len(x.strip()) > 0]
         for domain in email_domains:
-            if __validate_guess__(str(margs[1]), domain) is True:
+            if validate_guess(str(margs[1]), domain) is True:
                 results.append(str(domain))
     else:
         results.append(f"\033[31mdomain not formatted properly")
