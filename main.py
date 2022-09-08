@@ -15,11 +15,14 @@ sargs = vars(args)
 __filepath__ = os.path.dirname(__file__)
 __dirtree__ = os.listdir(__filepath__ + "/modules")
 
+def log(to: str, what: str):
+    print(f"\033[0m[\033[32m{to}\033[0m] {what}\033[0m")
+
 def main():
     for sarg in sargs:
         margs = sargs[sarg]
         __all__ = [name for name in globals()]
-        
+
         if len(margs) > 1:
             print(f"\033[0m[\033[32m+\033[0m] started command \033[93m{sarg}\033[0m")
             exec(open(__filepath__ + "/modules/" + sarg + "/" + margs[0] + ".py").read())
