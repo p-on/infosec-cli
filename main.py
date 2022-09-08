@@ -11,8 +11,8 @@ PGP_FORMAT = r"(?=\n([A-Za-z0-9+\/=\s][^:-]+)\n)|(?=^\s)"
 
 def log(to: str, what: str):
     if to == "*": to = "\033[93m*"
-    elif to == "+": to = "\033[32m+"
-    elif to == "-": to = "\033[31m-"
+    if to == "+": to = "\033[32m+"
+    if to == "-": to = "\033[31m-"
 
     print(f"\033[0m[{to}\033[0m] {what}\033[0m")
 
@@ -62,5 +62,5 @@ def main():
         for result in fails:
             log("-", f"\033[31m{result}")
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     main()
