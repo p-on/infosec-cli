@@ -4,7 +4,7 @@ parser = argparse.ArgumentParser(
     description = "a command line interface for infosec"
 )
 
-parser.add_argument("-b64", "--base64", type = str, nargs = 2,
+parser.add_argument("-b64", "--base64", type = str, nargs = "*",
     metavar = ("decode/encode", "string"),
     help = "modules for base64 handling"
 )
