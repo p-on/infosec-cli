@@ -25,7 +25,7 @@ def log(to: str, what: str):
     if to == "*": to = "\033[93m*"
     elif to == "+": to = "\033[32m+"
     elif to == "-": to = "\033[31m-"
-    
+
     print(f"\033[0m[{to}\033[0m] {what}\033[0m")
 
 def main():
@@ -40,5 +40,5 @@ def main():
             except Exception as e:
                 print(e)
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     main()
