@@ -16,11 +16,9 @@ async def main_holehe(email, out):
 modules = import_submodules("holehe.modules")
 websites = get_functions(modules)
 
-results, fails = [], []
-
 try:
     if bool(re.fullmatch(EMAIL_FORMAT, margs[1])):
-        out, fails, results = [], [], []
+        out = []
         trio.run(main_holehe, margs[1], out)
         for website in out:
             if website["rateLimit"] == True:
@@ -29,13 +27,6 @@ try:
             if website["exists"] == True:
                 results.append(f"https://{website['domain']}")
     else:
-        results = [f"\033[31memail not formatted properly"]
+        results.append(f"\033[31memail not formatted properly")
 except Exception as e:
-    results = [f"\033[31m{e}"]
-
-for result in results:
-    log("*", f"\033[32m{result}")
-
-if args.fails:
-    for result in fails:
-        log("-", f"\033[31m{result}")
+    results.append(f"\033[31m{e}")
