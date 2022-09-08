@@ -9,47 +9,6 @@ DOMAIN_FORMAT = r'\b[A-Za-z0-9*_-]+\.[A-Z*|a-z*]{2,}\b'
 DOMAINSHORT_FORMAT = r'\b[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_\/]+'
 PGP_FORMAT = r"(?=\n([A-Za-z0-9+\/=\s][^:-]+)\n)|(?=^\s)"
 
-def __validate_guess__(email_domain: str, domain: str) -> bool:
-    if len(email_domain) != len(domain):
-        return False
-    
-    positions = []
-    [positions.append((position, char)) for position, char in enumerate(email_domain) if char != '*']
-    for position, char in positions:
-        if domain[position] != char:
-            return False
-
-    return True
-
-def import_submodules(package, recursive=True):
-    if isinstance(package, str):
-        package = importlib.import_module(package)
-    resultsx = {}
-    for loader, name, is_pkg in pkgutil.walk_packages(package.__path__):
-        full_name = package.__name__ + '.' + name
-        resultsx[full_name] = importlib.import_module(full_name)
-        if recursive and is_pkg:
-            resultsx.update(import_submodules(full_name))
-    return resultsx
-
-def get_functions(modules, args=None):
-    websites = []
-
-    for module in modules:
-        if len(module.split(".")) > 3 :
-            modu = modules[module]
-            site = module.split(".")[-1]
-            if args !=None and args.nopasswordrecovery==True:
-                if  "adobe" not in str(modu.__dict__[site]) and "mail_ru" not in str(modu.__dict__[site]) and "odnoklassniki" not in str(modu.__dict__[site]):
-                    websites.append(modu.__dict__[site])
-            else:
-                websites.append(modu.__dict__[site])
-    return websites
-
-async def launch_module(module, email, client, out):
-    try: await module(email, client, out)
-    except: pass
-
 def log(to: str, what: str):
     if to == "*": to = "\033[93m*"
     elif to == "+": to = "\033[32m+"
@@ -86,19 +45,19 @@ def main():
     args = parser.parse_args()
     sargs = vars(args)
 
-    for sarg in sargs:
+    for sarg in sargs: # apologies for shitty argparse handling here, semi-argparse system in place, if this is out in release then it may be cleaned in the future // TODO: *please* learn argparse
         margs = sargs[sarg]
         __all__ = [name for name in globals()]
 
         if type(margs) == list and margs != None:
-            print(f"\033[0m[\033[32m+\033[0m] started command \033[93m{sarg}\033[0m")
+            log("*", f"started command \033[93m{sarg} {margs[0]}")
             try:
                 exec(open(__filepath__ + "/modules/" + sarg + "/" + margs[0] + ".py").read())
             except Exception as e:
                 print(e)
 
     for result in results:
-        log("*", f"\033[93m{result}")
+        log("+", f"\033[32m{result}")
     if args.fails:
         for result in fails:
             log("-", f"\033[31m{result}")
