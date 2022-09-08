@@ -9,6 +9,11 @@ parser.add_argument("-b64", "--base64", type = str, nargs = "*",
     help = "modules for base64 handling"
 )
 
+parser.add_argument("-md5", type = str, nargs = 2,
+    metavar = ("dehash/hash", "string"),
+    help = "modules for md5 handling"
+)
+
 args = parser.parse_args()
 sargs = vars(args)
 
@@ -28,7 +33,7 @@ def main():
         margs = sargs[sarg]
         __all__ = [name for name in globals()]
 
-        if len(margs) > 1:
+        if margs != None:
             print(f"\033[0m[\033[32m+\033[0m] started command \033[93m{sarg}\033[0m")
             try:
                 exec(open(__filepath__ + "/modules/" + sarg + "/" + margs[0] + ".py").read())
