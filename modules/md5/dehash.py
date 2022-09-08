@@ -1,5 +1,4 @@
 from main import *
-import base64
 
 result = None
 
