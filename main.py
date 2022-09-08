@@ -4,6 +4,18 @@ __filepath__ = os.path.dirname(__file__)
 __dirtree__ = os.listdir(__filepath__ + "/modules")
 __settings__ = json.load(open(__filepath__ + "/settings.json"))
 
+def __validate_guess__(email_domain: str, domain: str) -> bool:
+    if len(email_domain) != len(domain):
+        return False
+    
+    positions = []
+    [positions.append((position, char)) for position, char in enumerate(email_domain) if char != '*']
+    for position, char in positions:
+        if domain[position] != char:
+            return False
+
+    return True
+
 def log(to: str, what: str):
     if to == "*": to = "\033[93m*"
     elif to == "+": to = "\033[32m+"
@@ -25,6 +37,11 @@ def main():
         metavar = ("dehash/hash", "string"),
         help = "modules for md5 handling"
     ) # md5 command for further testing purposes, hash_files must be configured properly and formatted properly before running dehash
+
+    parser.add_argument("-em", "--email", type = str, nargs = 2,
+        metavar = ("guess", "email"),
+        help = "modules for email int"
+    ) # email command, no more to say
 
     args = parser.parse_args()
     sargs = vars(args)
