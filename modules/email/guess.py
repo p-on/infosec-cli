@@ -3,8 +3,6 @@ import httpx
 
 # credit to IRIS-Team
 
-results = []
-
 try:
     if margs[1].__contains__("@"): 
         margs[1] = margs[1].split("@")[1]
@@ -16,9 +14,6 @@ try:
             if __validate_guess__(str(margs[1]), domain) is True:
                 results.append(str(domain))
     else:
-        results = [f"\033[31mdomain not formatted properly"]
+        results.append(f"\033[31mdomain not formatted properly")
 except Exception as e:
-    results = [f"\033[31m{e}"]
-
-for result in results:
-    log("*", f"\033[93m{result}")
+    results.append(f"\033[31m{e}")
