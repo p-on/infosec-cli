@@ -85,15 +85,20 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "looks for info on the phone"
     )
-    parser.add_argument("-lk-gh", "--leaks-github",
+    parser.add_argument("-gh-l", "--github-leaks",
         nargs = 1, type = str, metavar = "github username",
         default = argparse.SUPPRESS,
         help = "searches for email leakage on github"
     )
-    parser.add_argument("-lk-kb", "--leaks-keybase",
+    parser.add_argument("-kb-l", "--keybase-leaks",
         nargs = 1, type = str, metavar = "keybase username",
         default = argparse.SUPPRESS,
         help = "searches for email leakage on keybase"
+    )
+    parser.add_argument("-kb-i", "--keybase-info",
+        nargs = 1, type = str, metavar = "keybase username",
+        default = argparse.SUPPRESS,
+        help = "searches for info on keybase username"
     )
     # parser.add_argument( ... )
 
