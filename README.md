@@ -1,6 +1,6 @@
 # osint.py
 
-A suite of tools condensed into a Python script to facilitate the collection and analysis of data gathered from open sources to produce actionable intelligence.
+a suite of tools condensed into a python script to facilitate the collection and analysis of data gathered from open sources for intelligence
 
 ## Installation
 
