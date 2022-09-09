@@ -34,6 +34,11 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "encodes string to base64"
     )
+    parser.add_argument("-b64-d", "--b64-decode",
+        nargs = "+", type = str,
+        default = argparse.SUPPRESS,
+        help = "decodes string from base64"
+    )
     # parser.add_argument( ... )
 
     args = parser.parse_args()
