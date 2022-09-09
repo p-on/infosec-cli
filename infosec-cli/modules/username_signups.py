@@ -1,6 +1,8 @@
 from __main__ import *
 import httpx, trio
 
+# credit to whatsmyname
+
 async def start_users(user, parent, client, out, fls):
     if not parent["valid"]: pass
     try: resp = await client.get(f"https://late-tooth-b0bf.ocemail.workers.dev/?{parent['check_uri'].replace('{account}', user)}")
