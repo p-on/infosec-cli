@@ -8,6 +8,7 @@ EMAIL_FORMAT = r'\b[A-Za-z0-9*._%+-]+@[A-Za-z0-9*.-]+\.[A-Z*|a-z*]{2,}\b'
 DOMAIN_FORMAT = r'\b[A-Za-z0-9*_-]+\.[A-Z*|a-z*]{2,}\b'
 DOMAINSHORT_FORMAT = r'\b[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_\/]+'
 PGP_FORMAT = r"(?=\n([A-Za-z0-9+\/=\s][^:-]+)\n)|(?=^\s)"
+PHONE_FORMAT = re.compile(r"\+?([0-9]{0,3})\d?([0-9]{3})-?([0-9]{3})-?([0-9]{4})", re.UNICODE)
 
 def log(to: str, what: str):
     if to == "*": to = "\033[93m*"
@@ -75,9 +76,14 @@ def main() -> None:
         help = "looks for subdomains on the domain"
     )
     parser.add_argument("-ip-i", "--ip-info",
-        nargs = 1, type = str, metavar = "domain",
+        nargs = 1, type = str, metavar = "ip",
         default = argparse.SUPPRESS,
         help = "looks for info on the ip"
+    )
+    parser.add_argument("-ph-i", "--phone-info",
+        nargs = 1, type = str, metavar = "phone",
+        default = argparse.SUPPRESS,
+        help = "looks for info on the phone"
     )
     # parser.add_argument( ... )
 
