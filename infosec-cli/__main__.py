@@ -64,6 +64,11 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "checks sites the username has signed up to"
     )
+    parser.add_argument("-dm-i", "--domain-info",
+        nargs = 1, type = str, metavar = "domain",
+        default = argparse.SUPPRESS,
+        help = "looks for info on the domain"
+    )
     # parser.add_argument( ... )
 
     args = parser.parse_args()
