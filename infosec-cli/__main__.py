@@ -85,6 +85,11 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "looks for info on the phone"
     )
+    parser.add_argument("-lk-gh", "--leaks-github",
+        nargs = 1, type = str, metavar = "github username",
+        default = argparse.SUPPRESS,
+        help = "searches for email leakage on github"
+    )
     # parser.add_argument( ... )
 
     args = parser.parse_args()

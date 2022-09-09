@@ -97,3 +97,5 @@ try:
         results.append(f"\033[31mphone not formatted properly")
 except Exception as e:
     results.append(f"\033[31m{e}")
+
+# this code needs to be better (pls)
