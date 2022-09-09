@@ -59,6 +59,11 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "checks sites the email has signed up to"
     )
+    parser.add_argument("-un-s", "--username-signups",
+        nargs = 1, type = str, metavar = "username",
+        default = argparse.SUPPRESS,
+        help = "checks sites the username has signed up to"
+    )
     # parser.add_argument( ... )
 
     args = parser.parse_args()
