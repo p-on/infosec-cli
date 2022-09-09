@@ -69,6 +69,11 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "looks for info on the domain"
     )
+    parser.add_argument("-dm-s", "--domain-sub",
+        nargs = 1, type = str, metavar = "domain",
+        default = argparse.SUPPRESS,
+        help = "looks for subdomains on the domain"
+    )
     # parser.add_argument( ... )
 
     args = parser.parse_args()
