@@ -26,7 +26,7 @@ def main() -> None:
     parser.epilog = "pigeon & 7ap were here"
 
     parser.add_argument("-f", "--fails", 
-        action = argparse.BooleanOptionalAction,
+        action = "store_true",
         help = "show fails for the specific command"
     )
     parser.add_argument("-b64-e", "--b64-encode",
