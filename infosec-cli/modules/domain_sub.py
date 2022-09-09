@@ -31,7 +31,7 @@ try:
             for item in response:
                 if not item in results:
                     results.append(item)
-        except Exception as e: print(e)
+        except: pass
     else:
         results.append(f"\033[31mdomain not formatted properly")
 except Exception as e:
