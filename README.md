@@ -11,3 +11,13 @@ A suite of tools condensed into a Python script to facilitate the collection and
 ```
 $ python3 osint.py -h
 ```
+
+## Credits
+
+* pigeon
+    * Project Lead
+    * Contributor
+
+* 7ap
+    * Project Lead
+    * Contributor
