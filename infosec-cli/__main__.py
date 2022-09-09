@@ -18,8 +18,8 @@ def log(to: str, what: str):
 
 def main() -> None:
     parser = argparse.ArgumentParser(fromfile_prefix_chars="@")
-    parser.prog = "osint.py"
-    parser.description = "a suite of tools condensed into a python script to facilitate the collection and analysis of data gathered from open sources for intelligence"
+    parser.prog = "infosec-cli"
+    parser.description = "a suite of tools condensed into a python cli to facilitate the collection and analysis of data gathered from open sources for intelligence"
     parser.epilog = "pigeon & 7ap were here"
 
     def sort_out(string):
