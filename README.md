@@ -1,2 +1,0 @@
-# infosec-cli
-WIP.
