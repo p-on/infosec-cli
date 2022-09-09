@@ -90,6 +90,11 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "searches for email leakage on github"
     )
+    parser.add_argument("-lk-kb", "--leaks-keybase",
+        nargs = 1, type = str, metavar = "keybase username",
+        default = argparse.SUPPRESS,
+        help = "searches for email leakage on keybase"
+    )
     # parser.add_argument( ... )
 
     args = parser.parse_args()
