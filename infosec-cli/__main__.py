@@ -54,6 +54,11 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "attempts to guess email based on * characters"
     )
+    parser.add_argument("-em-s", "--email-signups",
+        nargs = 1, type = str, metavar = "email",
+        default = argparse.SUPPRESS,
+        help = "checks sites the email has signed up to"
+    )
     # parser.add_argument( ... )
 
     args = parser.parse_args()
