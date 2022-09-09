@@ -16,14 +16,14 @@ def log(to: str, what: str):
 
     print(f"\033[0m[{to}\033[0m] {what}\033[0m")
 
+def sort_out(string):
+    return "_".join(string.casefold().split())
+
 def main() -> None:
     parser = argparse.ArgumentParser(fromfile_prefix_chars="@")
     parser.prog = "infosec-cli"
     parser.description = "a suite of tools condensed into a python cli to facilitate the collection and analysis of data gathered from open sources for intelligence"
     parser.epilog = "pigeon & 7ap were here"
-
-    def sort_out(string):
-        return "_".join(string.casefold().split())
 
     parser.add_argument("-f", "--fails", 
         action = argparse.BooleanOptionalAction,
