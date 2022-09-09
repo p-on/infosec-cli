@@ -49,6 +49,11 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "dehashes md5 to string"
     )
+    parser.add_argument("-em-g", "--email-guess",
+        nargs = 1, type = str, metavar = "email",
+        default = argparse.SUPPRESS,
+        help = "attempts to guess email based on * characters"
+    )
     # parser.add_argument( ... )
 
     args = parser.parse_args()
