@@ -37,7 +37,17 @@ def main() -> None:
     parser.add_argument("-b64-d", "--b64-decode",
         nargs = "+", type = str,
         default = argparse.SUPPRESS,
-        help = "decodes string from base64"
+        help = "decodes base64 to string"
+    )
+    parser.add_argument("-md5-h", "--md5-hash",
+        nargs = "+", type = str,
+        default = argparse.SUPPRESS,
+        help = "hashes string to md5"
+    )
+    parser.add_argument("-md5-d", "--md5-dehash",
+        nargs = "+", type = str,
+        default = argparse.SUPPRESS,
+        help = "dehashes md5 to string"
     )
     # parser.add_argument( ... )
 
