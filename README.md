@@ -9,7 +9,7 @@ a suite of tools condensed into a python script to facilitate the collection and
 ## Usage
 
 ```
-$ python3 osint.py -h
+$ python3 infosec-cli -h
 ```
 
 ## Credits
