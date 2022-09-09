@@ -2,7 +2,7 @@ import argparse, os, json, re, threading, pkgutil, importlib, sys
 
 __filepath__ = os.path.dirname(__file__)
 __dirtree__ = os.listdir(__filepath__ + "/modules")
-__settings__ = json.load(open(__filepath__ + "/settings.json"))
+__settings__ = json.load(open(__filepath__ + "/__settings__.json"))
 
 EMAIL_FORMAT = r'\b[A-Za-z0-9*._%+-]+@[A-Za-z0-9*.-]+\.[A-Z*|a-z*]{2,}\b'
 DOMAIN_FORMAT = r'\b[A-Za-z0-9*_-]+\.[A-Z*|a-z*]{2,}\b'
