@@ -1,4 +1,4 @@
-# osint.py
+# infosec-cli
 
 a suite of tools condensed into a python script to facilitate the collection and analysis of data gathered from open sources for intelligence
 
