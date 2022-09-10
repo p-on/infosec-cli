@@ -1,4 +1,4 @@
-import argparse, os, json, re, threading, pkgutil, importlib, sys
+import argparse, os, json, re, threading, pkgutil, importlib, sys, math
 
 __filepath__ = os.path.dirname(__file__)
 __dirtree__ = os.listdir(__filepath__ + "/modules")
@@ -99,6 +99,11 @@ def main() -> None:
         nargs = 1, type = str, metavar = "keybase username",
         default = argparse.SUPPRESS,
         help = "searches for info on keybase username"
+    )
+    parser.add_argument("-gh-i", "--github-info",
+        nargs = 1, type = str, metavar = "github username",
+        default = argparse.SUPPRESS,
+        help = "searches for info on github username"
     )
     # parser.add_argument( ... )
 

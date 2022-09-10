@@ -1,5 +1,6 @@
 from __main__ import *
 import httpx, base64
+from datetime import datetime
 
 regex_pgp = re.compile(PGP_FORMAT, re.MULTILINE)
 regex_email = re.compile(EMAIL_FORMAT, re.MULTILINE)
@@ -13,6 +14,12 @@ try:
         results.append(f"\033[0mLocation — \033[32m{them['profile']['location']}")
     if them["profile"]["bio"]:
         results.append(f"\033[0mBio — \033[32m{them['profile']['bio']}")
+    if them["basics"]["ctime"]:
+        results.append(f"\033[0mCreated — \033[32m{datetime.fromtimestamp(them['basics']['ctime'])}")
+    if them["basics"]["last_id_change"] > them["basics"]["mtime"]:
+        results.append(f"\033[0mLast Updated — \033[32m{datetime.fromtimestamp(them['basics']['last_id_change'])}")
+    else:
+        results.append(f"\033[0mLast Updated — \033[32m{datetime.fromtimestamp(them['basics']['mtime'])}")
     for sig in them["proofs_summary"]["all"]:
         results.append(f"\033[0m{sig['proof_type'][:1].upper()}{sig['proof_type'][1:]} Link — \033[32m{sig['service_url']}")
         results.append(f"\033[0m{sig['proof_type'][:1].upper()}{sig['proof_type'][1:]} Proof — \033[32m{sig['proof_url']}")
