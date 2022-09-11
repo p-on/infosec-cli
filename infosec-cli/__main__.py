@@ -110,6 +110,11 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "searches for info on twitch username"
     )
+    parser.add_argument("-gd-i", "--googledocs-info",
+        nargs = 1, type = str, metavar = "doc link",
+        default = argparse.SUPPRESS,
+        help = "searches for info (including owner info) on google document"
+    )
     # parser.add_argument( ... )
 
     args = parser.parse_args()
