@@ -4,7 +4,7 @@ a suite of tools condensed into a python script to facilitate the collection and
 
 ## Installation
 
-*todo* :wink:
+just download
 
 ## Usage
 
