@@ -105,6 +105,11 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "searches for info on github username"
     )
+    parser.add_argument("-tw-i", "--twitch-info",
+        nargs = 1, type = str, metavar = "twitch username",
+        default = argparse.SUPPRESS,
+        help = "searches for info on twitch username"
+    )
     # parser.add_argument( ... )
 
     args = parser.parse_args()

@@ -1,9 +1,6 @@
 from __main__ import *
-import httpx, base64
+import httpx
 from datetime import datetime
-
-regex_pgp = re.compile(PGP_FORMAT, re.MULTILINE)
-regex_email = re.compile(EMAIL_FORMAT, re.MULTILINE)
 
 try:
     response = httpx.get(f"https://keybase.io/_/api/1.0/user/lookup.json?usernames={margs[0]}").json()
