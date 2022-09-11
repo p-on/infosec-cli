@@ -57,6 +57,13 @@ try:
                 continue
             if website["exists"] == True:
                 results.append(f"https://{website['domain']}")
+                if website["emailrecovery"] != None:
+                    results.append(f"   ↳ {website['emailrecovery']}")
+                if website["phoneNumber"] != None:
+                    results.append(f"   ↳ {website['phoneNumber']}")
+                if website["others"] != None:
+                    for other in website["others"]:
+                        results.append(f"   ↳ \033[0m{other} — \033[32m{website['others'][other]}")
     else:
         results.append(f"\033[31memail not formatted properly")
 except Exception as e:
