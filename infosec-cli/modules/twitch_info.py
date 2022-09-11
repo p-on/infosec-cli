@@ -32,5 +32,9 @@ try:
         results.append(f"\033[0mLast Updated — \033[32m{to_readable(response['updatedAt'])}")
     if response["settings"]["preferredLanguageTag"]:
         results.append(f"\033[0mLanguage — \033[32m{response['settings']['preferredLanguageTag']}")
+    response = httpx.get(f"https://api.twitchdatabase.com/following/{margs[0]}").json()
+    results.append(f"\033[0mFollowing — \033[32m{response['total']}")
+    for follow in response["followingList"]:
+        results.append(f"   ↳ {follow['login']}\033[0m since \033[32m{to_readable(follow['followed_at'])}")
 except Exception as e:
     results.append(f"\033[31m{e}")

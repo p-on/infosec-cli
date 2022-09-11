@@ -19,7 +19,7 @@ try:
         results.append(f"\033[0mLast Updated — \033[32m{datetime.fromtimestamp(them['basics']['mtime'])}")
     for sig in them["proofs_summary"]["all"]:
         results.append(f"\033[0m{sig['proof_type'][:1].upper()}{sig['proof_type'][1:]} Link — \033[32m{sig['service_url']}")
-        results.append(f"\033[0m{sig['proof_type'][:1].upper()}{sig['proof_type'][1:]} Proof — \033[32m{sig['proof_url']}")
+        results.append(f"   ↳ \033[0mProof — \033[32m{sig['proof_url']}")
     for sig in them["cryptocurrency_addresses"]:
         for lsig in them["cryptocurrency_addresses"][sig]:
             results.append(f"\033[0m{sig[:1].upper()}{sig[1:]} Address — \033[32m{lsig['address']}")
