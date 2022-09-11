@@ -6,7 +6,9 @@ a suite of tools condensed into a python script to facilitate the collection and
 
 ## Installation
 
-just download
+$ git clone https://github.com/p-on/infosec-cli.git
+$ cd infosec-cli/
+$ pip3 install -r requirements.txt
 
 ## Usage
 
