@@ -1,6 +1,6 @@
 # infosec-cli
 
-A suite of tools condensed into a python script to facilitate the collection and analysis of data gathered from open sources for intelligence.
+A suite of tools condensed into a Python script to facilitate the collection and analysis of data gathered from open sources for intelligence.
 
 [![Try on repl.it](https://repl-badge.jajoosam.repl.co/try.png)](https://repl.it/@not-vuax/infosec-cli?ref=button)
 
