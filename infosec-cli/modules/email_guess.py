@@ -6,7 +6,7 @@ import httpx
 def validate_guess(email_domain: str, domain: str) -> bool:
     if len(email_domain) != len(domain):
         return False
-    
+
     positions = []
     [positions.append((position, char)) for position, char in enumerate(email_domain) if char != '*']
     for position, char in positions:
@@ -16,7 +16,7 @@ def validate_guess(email_domain: str, domain: str) -> bool:
     return True
 
 try:
-    if margs[0].__contains__("@"): 
+    if margs[0].__contains__("@"):
         margs[0] = margs[0].split("@")[1]
 
     if bool(re.fullmatch(DOMAIN_FORMAT, margs[0])):

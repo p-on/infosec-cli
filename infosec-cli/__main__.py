@@ -26,7 +26,7 @@ def main() -> None:
     parser.description = "a suite of tools condensed into a python cli to facilitate the collection and analysis of data gathered from open sources for intelligence"
     parser.epilog = "pigeon & 7ap were here"
 
-    parser.add_argument("-f", "--fails", 
+    parser.add_argument("-f", "--fails",
         action = "store_true",
         help = "show fails for the specific command"
     )

@@ -8,7 +8,7 @@ try:
         for item in links:
             subdomains = []
             item = item.strip()
-            if "<BR>" in item: 
+            if "<BR>" in item:
                 subdomains = item.split("<BR>")
             else:
                 subdomains.append(item)

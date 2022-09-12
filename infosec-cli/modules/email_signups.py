@@ -38,7 +38,7 @@ async def launch_module(module, email, client, out):
 
 async def main_holehe(email, out):
     global httpx, trio, websites, modules, launch_module
-    
+
     client = httpx.AsyncClient(timeout=10)
     async with trio.open_nursery() as nursery:
         for website in websites: nursery.start_soon(launch_module, website, email, client, out)
