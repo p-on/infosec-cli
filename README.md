@@ -24,6 +24,6 @@ $ python3 infosec-cli -h
     * Project Lead
     * Contributor
 
-* 7ap
+* [7ap](https://twitter.com/im7ap)
     * Project Lead
     * Contributor
