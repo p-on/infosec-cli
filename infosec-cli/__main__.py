@@ -116,7 +116,7 @@ def main() -> None:
         default = argparse.SUPPRESS,
         help = "searches for info (including owner info) on google document"
     )
-    parser.add_argument("-rx-i", "--roblox-info",
+    parser.add_argument("-rb-i", "--roblox-info",
         nargs = "+", type = str, metavar = "roblox username",
         default = argparse.SUPPRESS,
         help = "searches for info on roblox username"
