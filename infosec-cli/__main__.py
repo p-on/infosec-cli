@@ -9,6 +9,7 @@ DOMAIN_FORMAT = r'\b[A-Za-z0-9*_-]+\.[A-Z*|a-z*]{2,}\b'
 DOMAINSHORT_FORMAT = r'\b[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_\/]+'
 PGP_FORMAT = r"(?=\n([A-Za-z0-9+\/=\s][^:-]+)\n)|(?=^\s)"
 PHONE_FORMAT = re.compile(r"\+?([0-9]{0,3})\d?([0-9]{3})-?([0-9]{3})-?([0-9]{4})", re.UNICODE)
+DISCORD_FORMAT = r'(.{2,32}([^a-zA-Z0-9_\-\/()\[\]{}])\d{4})'
 
 def log(to: str, what: str):
     if to == "*": to = "\033[93m*"
@@ -114,6 +115,11 @@ def main() -> None:
         nargs = 1, type = str, metavar = "doc link",
         default = argparse.SUPPRESS,
         help = "searches for info (including owner info) on google document"
+    )
+    parser.add_argument("-rx-i", "--roblox-info",
+        nargs = "+", type = str, metavar = "roblox username",
+        default = argparse.SUPPRESS,
+        help = "searches for info on roblox username"
     )
     # parser.add_argument( ... )
 

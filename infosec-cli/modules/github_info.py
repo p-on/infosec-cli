@@ -10,6 +10,7 @@ def to_readable(string):
 
 try:
     response = httpx.get(f"https://api.github.com/users/{margs[0]}").json()
+    results.append(f"\033[0mLink — \033[32mhttps://github.com/{margs[0]}")
     if response["name"]:
         results.append(f"\033[0mName — \033[32m{response['name']}")
     if response["company"]:

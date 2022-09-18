@@ -5,6 +5,7 @@ from datetime import datetime
 try:
     response = httpx.get(f"https://keybase.io/_/api/1.0/user/lookup.json?usernames={margs[0]}").json()
     them = response["them"][0]
+    results.append(f"\033[0mLink — \033[32mhttps://keybase.io/{margs[0]}")
     if them["profile"]["full_name"]:
         results.append(f"\033[0mFull Name — \033[32m{them['profile']['full_name']}")
     if them["profile"]["location"]:

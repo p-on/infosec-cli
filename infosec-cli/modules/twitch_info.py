@@ -10,6 +10,7 @@ def to_readable(string):
 
 try:
     response = httpx.get(f"https://api.ivr.fi/twitch/resolve/{margs[0]}").json()
+    results.append(f"\033[0mLink — \033[32mhttps://twitch.tv/{margs[0]}")
     if response["banned"]:
         results.append(f"\033[0mBanned — \033[32m{response['banned']}")
     if response["displayName"]:
