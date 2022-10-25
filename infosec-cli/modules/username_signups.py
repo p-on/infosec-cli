@@ -5,18 +5,18 @@ import httpx, trio
 
 async def start_users(user, parent, client, out, fls):
     if not parent["valid"]: pass
-    try: resp = await client.get(f"https://late-tooth-b0bf.ocemail.workers.dev/?{parent['check_uri'].replace('{account}', user)}")
+    try: resp = await client.get(f"https://late-tooth-b0bf.ocemail.workers.dev/?{parent['uri_check'].replace('{account}', user)}")
     except: pass
     else:
-        if resp.status_code == int(parent["account_existence_code"]) and not resp.text.find(parent["account_existence_string"]) == -1:
-            out.append(parent["check_uri"].replace("{account}", user))
+        if resp.status_code == int(parent["e_code"]) and not resp.text.find(parent["m_string"]) == -1:
+            out.append(parent["uri_check"].replace("{account}", user))
         else:
-            fls.append(parent["check_uri"].replace("{account}", user))
+            fls.append(parent["uri_check"].replace("{account}", user))
 
 async def main_users(user, out, fls):
     global httpx, start_users, trio
 
-    websites = httpx.get("https://raw.githubusercontent.com/WebBreacher/WhatsMyName/master/web_accounts_list.json").json()
+    websites = httpx.get("https://raw.githubusercontent.com/WebBreacher/WhatsMyName/main/wmn-data.json").json()
     headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.5",
