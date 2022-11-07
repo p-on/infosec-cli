@@ -8,7 +8,7 @@ async def start_users(user, parent, client, out, fls):
     try: resp = await client.get(f"https://late-tooth-b0bf.ocemail.workers.dev/?{parent['uri_check'].replace('{account}', user)}")
     except: pass
     else:
-        if resp.status_code == int(parent["e_code"]) and not resp.text.find(parent["m_string"]) == -1:
+        if resp.status_code == int(parent["e_code"]) and not resp.text.find(parent["e_string"]) == -1:
             out.append(parent["uri_check"].replace("{account}", user))
         else:
             fls.append(parent["uri_check"].replace("{account}", user))
